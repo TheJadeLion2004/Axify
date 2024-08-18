@@ -298,6 +298,12 @@ int main(){
         }
     }
     
+    ofstream input("polygon.csv");
+    for (auto s : poly.edges){
+        input << s.start.x << ',' << s.start.y << ',' << s.end.x << ',' << s.end.y << '\n';
+    }
+    input.close();
+    
     ofstream output("line_segments.csv");
     for (auto s : final_segments){
         output << s.start.x << ',' << s.start.y << ',' << s.end.x << ',' << s.end.y << '\n';
