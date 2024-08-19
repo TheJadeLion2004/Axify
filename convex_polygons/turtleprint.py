@@ -11,7 +11,7 @@ with open(file_path, 'r') as file:
     csv_reader = csv.reader(file)
     '''next(csv_reader)'''  # Skip the header if present
     for row in csv_reader:
-        x1, y1, x2, y2 = int(row[0]), int(row[1]), int(row[2]), int(row[3])
+        x1, y1, x2, y2 = float(row[0]), float(row[1]), float(row[2]), float(row[3])
         coordinate_pairs.append(((x1, y1), (x2, y2)))
 
 # Step 2: Set up the Turtle environment
@@ -43,7 +43,7 @@ with open(file_path, 'r') as file:
     csv_reader = csv.reader(file)
     '''next(csv_reader)'''  # Skip the header if present
     for row in csv_reader:
-        x1, y1, x2, y2 = int(row[0]), int(row[1]), int(row[2]), int(row[3])
+        x1, y1, x2, y2 = float(row[0]), float(row[1]), float(row[2]), float(row[3])
         coordinate_pairs.append(((x1, y1), (x2, y2)))
 
 # Step 2: Set up the Turtle environment
@@ -65,3 +65,4 @@ for (x1, y1), (x2, y2) in coordinate_pairs:
 
 # Keep the window open until it is closed by the user
 turtle.done()
+
