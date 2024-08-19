@@ -3,7 +3,7 @@ import csv
 
 
 # Define the file path to read from
-file_path = '/home/atharva/Documents/snipperclips/polygon.csv'
+file_path = 'polygon.csv'
 
 scale_factor= 100
 # Step 1: Read the coordinate pairs from the CSV file
@@ -21,7 +21,7 @@ screen.setworldcoordinates(-100, -100, 100, 100)
 t = turtle.Turtle()
 
 # Set the turtle's speed
-t.speed(1)
+t.speed(5)
 t.pencolor("blue")
 
 # Step 3: Move the turtle to connect each pair of points
@@ -36,7 +36,7 @@ for (x1, y1), (x2, y2) in coordinate_pairs:
 # Keep the window open until it is closed by the user
 #turtle.done()
 
-file_path = '/home/atharva/Documents/snipperclips/line_segments.csv'
+file_path = 'line_segments.csv'
 
 scale_factor= 100
 # Step 1: Read the coordinate pairs from the CSV file
@@ -54,8 +54,8 @@ screen.setworldcoordinates(-100, -100, 100, 100) #for changing the size of the f
 t = turtle.Turtle()
 
 # Set the turtle's speed
-t.speed(1)
-#t.pencolor("blue")
+t.speed(5)
+t.pencolor("red")
 
 # Step 3: Move the turtle to connect each pair of points
 for (x1, y1), (x2, y2) in coordinate_pairs:
