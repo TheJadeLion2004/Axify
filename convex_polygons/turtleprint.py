@@ -2,7 +2,7 @@ import turtle
 import csv
 
 # Define the file path to read from
-file_path = '/home/atharva/Documents/snipperclips/polygon.csv'
+file_path = 'polygon.csv'
 
 scale_factor= 20
 # Step 1: Read the coordinate pairs from the CSV file
@@ -19,22 +19,22 @@ screen = turtle.Screen()
 t = turtle.Turtle()
 
 # Set the turtle's speed
-t.speed(1)
+t.speed(5)
 t.pencolor("blue")
 
 # Step 3: Move the turtle to connect each pair of points
 for (x1, y1), (x2, y2) in coordinate_pairs:
     t.penup()
-    t.goto(x1, y1)  # Move to the first point
+    t.goto(4 * x1, 4 * y1)  # Move to the first point
     t.pendown()
    # t.write(f"({x1}, {y1})", font=("Arial", 12, "normal"))  # Display the first coordinate
-    t.goto(x2, y2)  # Draw a line to the second point
+    t.goto(4 * x2, 4 * y2)  # Draw a line to the second point
     #t.write(f"({x2}, {y2})", font=("Arial", 12, "normal"))  # Display the second coordinate
 
 # Keep the window open until it is closed by the user
 #turtle.done()
 
-file_path = '/home/atharva/Documents/snipperclips/line_segments.csv'
+file_path = 'line_segments.csv'
 
 scale_factor= 20
 # Step 1: Read the coordinate pairs from the CSV file
@@ -51,18 +51,17 @@ screen = turtle.Screen()
 t = turtle.Turtle()
 
 # Set the turtle's speed
-t.speed(1)
-#t.pencolor("blue")
+t.speed(5)
+t.pencolor("red")
 
 # Step 3: Move the turtle to connect each pair of points
 for (x1, y1), (x2, y2) in coordinate_pairs:
     t.penup()
-    t.goto(x1, y1)  # Move to the first point
+    t.goto(4 * x1, 4 * y1)  # Move to the first point
     t.pendown()
    # t.write(f"({x1}, {y1})", font=("Arial", 12, "normal"))  # Display the first coordinate
-    t.goto(x2, y2)  # Draw a line to the second point
+    t.goto(4 * x2, 4 * y2)  # Draw a line to the second point
     #t.write(f"({x2}, {y2})", font=("Arial", 12, "normal"))  # Display the second coordinate
 
 # Keep the window open until it is closed by the user
 turtle.done()
-
