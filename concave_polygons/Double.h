@@ -19,7 +19,7 @@ public:
     Double(long double v){
         value = v;
     }
-    operator long double(){
+    operator long double() const{
         return value;
     }
     Double& operator = (const Double &d){

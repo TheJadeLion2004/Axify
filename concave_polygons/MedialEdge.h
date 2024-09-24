@@ -13,17 +13,17 @@ public:
         start_point = Point(Nan, Nan);
         end_point = Point(Nan, Nan);
     };
-    MedialEdge(Segment seg, int p1, int p2, Point start, Point end){
+    MedialEdge(Segment seg, Point start, Point end){
         shape = seg;
         start_point = start;
         end_point = end;
     }
-    MedialEdge(Ray ray, int p1, int p2, Point start, Point end){
+    MedialEdge(Ray ray, Point start, Point end = nanPoint){
         shape = ray;
         start_point = start;
         end_point = end;
     }
-    MedialEdge(Parabola para, int p1, int p2, Point start, Point end){
+    MedialEdge(Parabola para, Point start, Point end = nanPoint){
         shape = para;
         start_point = start;
         end_point = end;

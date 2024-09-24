@@ -76,4 +76,6 @@ bool isnan(Point p){
     return std::isnan(p.x) or std::isnan(p.y);
 }
 
+Point nanPoint(Nan, Nan);
+
 #endif //AXIFY_POINT_H

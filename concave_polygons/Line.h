@@ -73,7 +73,7 @@ bool isParallel(Line l1, Line l2){
 
 Point intersection(Line l1, Line l2){
     if (isParallel(l1, l2)){
-        return Point(Nan, Nan);
+        return nanPoint;
     }
     return Point((l1.b * l2.c - l2.b * l1.c) / (l1.a * l2.b - l2.a * l1.b),
                  (l1.c * l2.a - l2.c * l1.a) / (l1.a * l2.b - l2.a * l1.b));
@@ -164,7 +164,7 @@ Point intersection(Ray r1, Ray r2){
         return p;
     }
     else {
-        return Point(Nan, Nan);
+        return nanPoint;
     }
 }
 
@@ -174,11 +174,12 @@ Point intersection(Ray r, Segment s){
         return p;
     }
     else {
-        return Point(Nan, Nan);
+        return nanPoint;
     }
 }
 
 Ray bisector(Segment s1, Segment s2, Point start){
+    bool edge_case = false;
     if (s1.end != s1.start){
         Point p = intersection((Line)s1, (Line)s2);
         s1.end = p;
@@ -186,6 +187,9 @@ Ray bisector(Segment s1, Segment s2, Point start){
     }
     s2 = s2 * (s1.length() / s2.length());
     Ray r(s2.start, (s2.end + s1.start) / 2);
+    if (edge_case){
+        r.end = r.start * 2 - r.end;
+    }
     r.start = start;
     return r;
 }
@@ -205,7 +209,7 @@ Ray bisectorLocal(Segment s, Point p){
 
 bool isValid(Point p, Segment s){
     Ray r1 = bisectorLocal(s, s.start), r2 = bisectorLocal(s, s.end);
-    return (sign(r1.a * p.x + r1.b * p.y + r1.c) * sign(r2.a * p.x + r2.b * p.y + r2.c) == -1);
+    return (sign(r1.a * p.x + r1.b * p.y + r1.c) * sign(r2.a * p.x + r2.b * p.y + r2.c) <= 0);
 }
 
 bool isValid(Point p, Segment s1, Segment s2){
@@ -214,7 +218,7 @@ bool isValid(Point p, Segment s1, Segment s2){
     Double a = r1.end.x - r1.start.x, b = r1.end.y - r1.start.y,
            c = r2.end.x - r2.start.x, d = r2.end.y - r2.start.y,
            x = p.x - s2.start.x, y = p.y - s2.start.y;
-    return (sign(b * x - a * y) * sign(d * x - c * y) == -1);
+    return (sign(b * x - a * y) * sign(d * x - c * y) <= 0);
 }
 
 

@@ -13,8 +13,8 @@ public:
         directrix.a = d.a;
         directrix.b = d.b;
         directrix.c = d.c;
-        start = Point(Nan, Nan);
-        end = Point(Nan, Nan);
+        start = nanPoint;
+        end = nanPoint;
     }
     Parabola(Point f, Line d, Point s, Point e){
         focus.x = f.x;
@@ -94,25 +94,25 @@ std::pair<Point,Point> intersection(Parabola pa, Line l){
     std::pair<Double, Double> x = quadratic(a * B, A - 2 * a * b * B, a * b * b * B + c * B + C);
     std::pair<Point, Point> pts;
     if (std::isnan(x.first)){
-        pts.first = Point(Nan, Nan);
+        pts.first = nanPoint;
     }
     else {
         pts.first.x = x.first;
         pts.first.y = a * (x.first - b) * (x.first - b) + c;
         pts.first = pts.first.rotate(- pa.angle_to_rotate());
         if (not isOn(pts.first, pa, true)){
-            pts.first = Point(Nan, Nan);
+            pts.first = nanPoint;
         }
     }
     if (std::isnan(x.second)){
-        pts.second = Point(Nan, Nan);
+        pts.second = nanPoint;
     }
     else {
         pts.second.x = x.second;
         pts.second.y = a * (x.second - b) * (x.second - b) + c;
         pts.second = pts.second.rotate(- pa.angle_to_rotate());
         if (not isOn(pts.second, pa, true)){
-            pts.second = Point(Nan, Nan);
+            pts.second = nanPoint;
         }
     }
     return pts;
@@ -121,10 +121,10 @@ std::pair<Point,Point> intersection(Parabola pa, Line l){
 std::pair<Point,Point> intersection(Parabola pa, Segment s){
     std::pair<Point,Point> pts = intersection(pa, (Line)s);
     if (not isOn(pts.first, s, true)){
-        pts.first = Point(Nan, Nan);
+        pts.first = nanPoint;
     }
     if (not isOn(pts.second, s, true)){
-        pts.second = Point(Nan, Nan);
+        pts.second = nanPoint;
     }
     return pts;
 }
@@ -132,10 +132,10 @@ std::pair<Point,Point> intersection(Parabola pa, Segment s){
 std::pair<Point,Point> intersection(Parabola pa, Ray r){
     std::pair<Point,Point> pts = intersection(pa, (Line)r);
     if (not isOn(pts.first, r, true)){
-        pts.first = Point(Nan, Nan);
+        pts.first = nanPoint;
     }
     if (not isOn(pts.second, r, true)){
-        pts.second = Point(Nan, Nan);
+        pts.second = nanPoint;
     }
     return pts;
 }
